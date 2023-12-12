@@ -1,0 +1,74 @@
+{
+	"parameters": [],
+	"Vertex": {
+		"nodes": [],
+		"edges": []
+	},
+	"Fragment": {
+		"nodes": [
+			{
+				"x": 542,
+				"y": 418,
+				"id": 1,
+				"type": "hrt.shgraph.ShaderOutput",
+				"properties": {
+					"name": "pixelColor",
+					"type": "TVec",
+					"vecSize": 4,
+					"vecType": "VFloat"
+				}
+			},
+			{
+				"x": 21,
+				"y": 454,
+				"id": 4,
+				"type": "hrt.shgraph.ShaderGlobalInput",
+				"properties": {
+					"variableIdx": 0
+				}
+			},
+			{
+				"x": 31,
+				"y": 286,
+				"id": 7,
+				"type": "hrt.shgraph.ShaderGlobalInput",
+				"properties": {
+					"variableIdx": 0
+				}
+			},
+			{
+				"x": 319,
+				"y": 411,
+				"id": 8,
+				"type": "hrt.shgraph.nodes.Add",
+				"properties": {}
+			}
+		],
+		"edges": [
+			{
+				"outputNodeId": 8,
+				"nameOutput": "output",
+				"inputNodeId": 1,
+				"nameInput": "input",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 7,
+				"nameOutput": "output",
+				"inputNodeId": 8,
+				"nameInput": "a",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 4,
+				"nameOutput": "output",
+				"inputNodeId": 8,
+				"nameInput": "b",
+				"inputId": 1,
+				"outputId": 0
+			}
+		]
+	}
+}

@@ -1,0 +1,101 @@
+{
+	"parameters": [
+		{
+			"id": 0,
+			"name": "Param_0",
+			"type": [
+				"TSampler2D",
+				""
+			],
+			"defaultValue": "Textures/texture.png",
+			"index": 0
+		}
+	],
+	"Vertex": {
+		"nodes": [],
+		"edges": []
+	},
+	"Fragment": {
+		"nodes": [
+			{
+				"x": 423,
+				"y": 381,
+				"id": 0,
+				"type": "hrt.shgraph.nodes.Rotate",
+				"properties": {}
+			},
+			{
+				"x": 432,
+				"y": 145,
+				"id": 1,
+				"type": "hrt.shgraph.ShaderParam",
+				"properties": {
+					"parameterId": 0,
+					"perInstance": null
+				}
+			},
+			{
+				"x": 612,
+				"y": 271,
+				"id": 2,
+				"type": "hrt.shgraph.nodes.Sampler",
+				"properties": {}
+			},
+			{
+				"x": 850,
+				"y": 318,
+				"id": 3,
+				"type": "hrt.shgraph.ShaderOutput",
+				"properties": {
+					"name": "pixelColor",
+					"type": "TVec",
+					"vecSize": 4,
+					"vecType": "VFloat"
+				}
+			},
+			{
+				"x": 207,
+				"y": 455,
+				"id": 6,
+				"type": "hrt.shgraph.ShaderGlobalInput",
+				"properties": {
+					"variableIdx": 0
+				}
+			}
+		],
+		"edges": [
+			{
+				"outputNodeId": 6,
+				"nameOutput": "output",
+				"inputNodeId": 0,
+				"nameInput": "rotation",
+				"inputId": 2,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 1,
+				"nameOutput": "output",
+				"inputNodeId": 2,
+				"nameInput": "texture",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 0,
+				"nameOutput": "output",
+				"inputNodeId": 2,
+				"nameInput": "uv",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 2,
+				"nameOutput": "RGBA",
+				"inputNodeId": 3,
+				"nameInput": "input",
+				"inputId": 0,
+				"outputId": 0
+			}
+		]
+	}
+}

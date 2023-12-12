@@ -1,0 +1,78 @@
+{
+	"parameters": [
+		{
+			"id": 0,
+			"name": "in",
+			"type": [
+				"TVec",
+				"4,VFloat"
+			],
+			"defaultValue": [
+				0,
+				0,
+				0,
+				1
+			],
+			"index": 0
+		}
+	],
+	"Vertex": {
+		"nodes": [],
+		"edges": []
+	},
+	"Fragment": {
+		"nodes": [
+			{
+				"x": 747,
+				"y": 268,
+				"id": 0,
+				"type": "hrt.shgraph.ShaderOutput",
+				"properties": {
+					"name": "out",
+					"type": "TVec",
+					"vecSize": 4,
+					"vecType": "VFloat"
+				}
+			},
+			{
+				"x": 372,
+				"y": 270,
+				"id": 1,
+				"type": "hrt.shgraph.ShaderParam",
+				"properties": {
+					"parameterId": 0,
+					"perInstance": null
+				}
+			},
+			{
+				"x": 565,
+				"y": 275,
+				"id": 2,
+				"type": "hrt.shgraph.nodes.Subtract",
+				"properties": {
+					"defaults": {
+						"a": "1"
+					}
+				}
+			}
+		],
+		"edges": [
+			{
+				"outputNodeId": 2,
+				"nameOutput": "output",
+				"inputNodeId": 0,
+				"nameInput": "input",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 1,
+				"nameOutput": "output",
+				"inputNodeId": 2,
+				"nameInput": "b",
+				"inputId": 1,
+				"outputId": 0
+			}
+		]
+	}
+}

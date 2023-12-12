@@ -1,0 +1,105 @@
+{
+	"parameters": [
+		{
+			"id": 0,
+			"name": "Param_0",
+			"type": [
+				"TSampler2D",
+				""
+			],
+			"defaultValue": "Textures/flipbook.png",
+			"index": 0
+		}
+	],
+	"Vertex": {
+		"nodes": [],
+		"edges": []
+	},
+	"Fragment": {
+		"nodes": [
+			{
+				"x": 534,
+				"y": 336,
+				"id": 0,
+				"type": "hrt.shgraph.nodes.Flipbook",
+				"properties": {
+					"defaults": {
+						"width": "3"
+					}
+				}
+			},
+			{
+				"x": 489,
+				"y": 88,
+				"id": 1,
+				"type": "hrt.shgraph.ShaderParam",
+				"properties": {
+					"parameterId": 0,
+					"perInstance": null
+				}
+			},
+			{
+				"x": 678,
+				"y": 194,
+				"id": 2,
+				"type": "hrt.shgraph.nodes.Sampler",
+				"properties": {}
+			},
+			{
+				"x": 952,
+				"y": 231,
+				"id": 4,
+				"type": "hrt.shgraph.ShaderOutput",
+				"properties": {
+					"name": "pixelColor",
+					"type": "TVec",
+					"vecSize": 4,
+					"vecType": "VFloat"
+				}
+			},
+			{
+				"x": 336,
+				"y": 400,
+				"id": 6,
+				"type": "hrt.shgraph.ShaderGlobalInput",
+				"properties": {
+					"variableIdx": 0
+				}
+			}
+		],
+		"edges": [
+			{
+				"outputNodeId": 6,
+				"nameOutput": "output",
+				"inputNodeId": 0,
+				"nameInput": "frame",
+				"inputId": 3,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 1,
+				"nameOutput": "output",
+				"inputNodeId": 2,
+				"nameInput": "texture",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 0,
+				"nameOutput": "output",
+				"inputNodeId": 2,
+				"nameInput": "uv",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 2,
+				"nameOutput": "RGBA",
+				"inputNodeId": 4,
+				"nameInput": "input",
+				"inputId": 0,
+				"outputId": 0
+			}
+		]
+	}
+}

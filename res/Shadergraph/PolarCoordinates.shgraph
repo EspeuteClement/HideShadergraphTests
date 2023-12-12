@@ -1,0 +1,88 @@
+{
+	"parameters": [
+		{
+			"id": 0,
+			"name": "Param_0",
+			"type": [
+				"TSampler2D",
+				""
+			],
+			"defaultValue": "Textures/texture.png",
+			"index": 0
+		}
+	],
+	"Vertex": {
+		"nodes": [],
+		"edges": []
+	},
+	"Fragment": {
+		"nodes": [
+			{
+				"x": 264,
+				"y": 477,
+				"id": 0,
+				"type": "hrt.shgraph.nodes.PolarCoordinates",
+				"properties": {
+					"defaults": {
+						"lengthScale": "2"
+					}
+				}
+			},
+			{
+				"x": 949,
+				"y": 367,
+				"id": 1,
+				"type": "hrt.shgraph.ShaderOutput",
+				"properties": {
+					"name": "pixelColor",
+					"type": "TVec",
+					"vecSize": 4,
+					"vecType": "VFloat"
+				}
+			},
+			{
+				"x": 286,
+				"y": 250,
+				"id": 2,
+				"type": "hrt.shgraph.ShaderParam",
+				"properties": {
+					"parameterId": 0,
+					"perInstance": null
+				}
+			},
+			{
+				"x": 684,
+				"y": 289,
+				"id": 3,
+				"type": "hrt.shgraph.nodes.Sampler",
+				"properties": {}
+			}
+		],
+		"edges": [
+			{
+				"outputNodeId": 3,
+				"nameOutput": "RGBA",
+				"inputNodeId": 1,
+				"nameInput": "input",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 2,
+				"nameOutput": "output",
+				"inputNodeId": 3,
+				"nameInput": "texture",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 0,
+				"nameOutput": "output",
+				"inputNodeId": 3,
+				"nameInput": "uv",
+				"inputId": 1,
+				"outputId": 0
+			}
+		]
+	}
+}

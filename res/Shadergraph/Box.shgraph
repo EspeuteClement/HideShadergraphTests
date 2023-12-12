@@ -1,0 +1,249 @@
+{
+	"parameters": [
+		{
+			"id": 0,
+			"name": "Param_0",
+			"type": [
+				"TSampler2D",
+				""
+			],
+			"defaultValue": "Textures/texture.png",
+			"index": 0
+		}
+	],
+	"Vertex": {
+		"nodes": [],
+		"edges": []
+	},
+	"Fragment": {
+		"nodes": [
+			{
+				"x": 99,
+				"y": 319,
+				"id": 1,
+				"type": "hrt.shgraph.ShaderInput",
+				"properties": {
+					"variable": "calculatedUV"
+				}
+			},
+			{
+				"x": 650,
+				"y": 354,
+				"id": 2,
+				"type": "hrt.shgraph.nodes.Atan2",
+				"properties": {}
+			},
+			{
+				"x": 334,
+				"y": 322,
+				"id": 3,
+				"type": "hrt.shgraph.nodes.Remap",
+				"properties": {
+					"defaults": {
+						"outMin": "-1"
+					}
+				}
+			},
+			{
+				"x": 873,
+				"y": 546,
+				"id": 6,
+				"type": "hrt.shgraph.nodes.Fract",
+				"properties": {}
+			},
+			{
+				"x": 788,
+				"y": 255,
+				"id": 9,
+				"type": "hrt.shgraph.nodes.Remap",
+				"properties": {
+					"defaults": {
+						"inMin": "-3.14",
+						"inMax": "3.14"
+					}
+				}
+			},
+			{
+				"x": 1248,
+				"y": 332,
+				"id": 10,
+				"type": "hrt.shgraph.ShaderOutput",
+				"properties": {
+					"name": "pixelColor",
+					"type": "TVec",
+					"vecSize": 4,
+					"vecType": "VFloat"
+				}
+			},
+			{
+				"x": 961,
+				"y": 336,
+				"id": 11,
+				"type": "hrt.shgraph.nodes.Subtract",
+				"properties": {}
+			},
+			{
+				"x": 1089,
+				"y": 341,
+				"id": 12,
+				"type": "hrt.shgraph.nodes.SmoothStep",
+				"properties": {
+					"defaults": {
+						"a": "-0.01",
+						"b": "0.01"
+					}
+				}
+			},
+			{
+				"x": 522,
+				"y": 590,
+				"id": 13,
+				"type": "hrt.shgraph.nodes.Rotate",
+				"properties": {
+					"defaults": {
+						"center": "0"
+					}
+				}
+			},
+			{
+				"x": -20,
+				"y": 641,
+				"id": 14,
+				"type": "hrt.shgraph.ShaderGlobalInput",
+				"properties": {
+					"variableIdx": 0
+				}
+			},
+			{
+				"x": 61,
+				"y": 878,
+				"id": 15,
+				"type": "hrt.shgraph.ShaderParam",
+				"properties": {
+					"parameterId": 0,
+					"perInstance": null
+				}
+			},
+			{
+				"x": 648,
+				"y": 808,
+				"id": 16,
+				"type": "hrt.shgraph.nodes.Sampler",
+				"properties": {}
+			},
+			{
+				"x": 390,
+				"y": 908,
+				"id": 17,
+				"type": "hrt.shgraph.nodes.Rotate",
+				"properties": {}
+			}
+		],
+		"edges": [
+			{
+				"outputNodeId": 13,
+				"nameOutput": "output",
+				"inputNodeId": 2,
+				"nameInput": "a",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 1,
+				"nameOutput": "output",
+				"inputNodeId": 3,
+				"nameInput": "input",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 2,
+				"nameOutput": "output",
+				"inputNodeId": 9,
+				"nameInput": "input",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 16,
+				"nameOutput": "RGBA",
+				"inputNodeId": 10,
+				"nameInput": "input",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 9,
+				"nameOutput": "output",
+				"inputNodeId": 11,
+				"nameInput": "a",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 6,
+				"nameOutput": "output",
+				"inputNodeId": 11,
+				"nameInput": "b",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 11,
+				"nameOutput": "output",
+				"inputNodeId": 12,
+				"nameInput": "fact",
+				"inputId": 2,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 14,
+				"nameOutput": "output",
+				"inputNodeId": 13,
+				"nameInput": "rotation",
+				"inputId": 2,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 3,
+				"nameOutput": "output",
+				"inputNodeId": 13,
+				"nameInput": "uv",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 15,
+				"nameOutput": "output",
+				"inputNodeId": 16,
+				"nameInput": "texture",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 17,
+				"nameOutput": "output",
+				"inputNodeId": 16,
+				"nameInput": "uv",
+				"inputId": 1,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 1,
+				"nameOutput": "output",
+				"inputNodeId": 17,
+				"nameInput": "uv",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 14,
+				"nameOutput": "output",
+				"inputNodeId": 17,
+				"nameInput": "rotation",
+				"inputId": 2,
+				"outputId": 0
+			}
+		]
+	}
+}

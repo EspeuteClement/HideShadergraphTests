@@ -1,0 +1,76 @@
+{
+	"parameters": [
+		{
+			"id": 0,
+			"name": "Param_0",
+			"type": [
+				"TVec",
+				"4,VFloat"
+			],
+			"defaultValue": [
+				0.4196078431372549,
+				0.0392156862745098,
+				0.9372549019607843,
+				1
+			],
+			"index": 0
+		}
+	],
+	"Vertex": {
+		"nodes": [],
+		"edges": []
+	},
+	"Fragment": {
+		"nodes": [
+			{
+				"x": 398,
+				"y": 338,
+				"id": 0,
+				"type": "hrt.shgraph.ShaderParam",
+				"properties": {
+					"parameterId": 0,
+					"perInstance": null
+				}
+			},
+			{
+				"x": 580,
+				"y": 328,
+				"id": 1,
+				"type": "hrt.shgraph.nodes.SubGraph",
+				"properties": {
+					"pathShaderGraph": "Shadergraph/InvertSubgraph.shgraph"
+				}
+			},
+			{
+				"x": 897,
+				"y": 333,
+				"id": 2,
+				"type": "hrt.shgraph.ShaderOutput",
+				"properties": {
+					"name": "pixelColor",
+					"type": "TVec",
+					"vecSize": 4,
+					"vecType": "VFloat"
+				}
+			}
+		],
+		"edges": [
+			{
+				"outputNodeId": 0,
+				"nameOutput": "output",
+				"inputNodeId": 1,
+				"nameInput": "in",
+				"inputId": 0,
+				"outputId": 0
+			},
+			{
+				"outputNodeId": 1,
+				"nameOutput": "out",
+				"inputNodeId": 2,
+				"nameInput": "input",
+				"inputId": 0,
+				"outputId": 0
+			}
+		]
+	}
+}
